@@ -13,5 +13,16 @@ import os.path
 import sys
 
 # Send URL to generic scraper
-URL = "http://espn.go.com/mlb/stats/batting/_/sort/avg/league/nl/year/2015/seasontype/2"
-os.system("python tbl2csv.py " + URL)
+
+# MLB URL
+URL1 = "http://espn.go.com/mlb/stats/batting/_/league/nl/count/1/qualified/true"
+f1 = "mlb1.csv"
+os.system("python tbl2csv.py " + URL1 + " " + f1)
+
+
+URL2 = "http://espn.go.com/mlb/stats/batting/_/league/nl/count/41/qualified/true"
+f2 = "mlb2.csv"
+os.system("python tbl2csv.py " + URL2 + " " + f2)
+
+fn = "mlb.csv"
+os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)

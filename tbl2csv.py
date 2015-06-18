@@ -16,7 +16,7 @@ import os.path
 
 # Return table from the HTML source code
 def getTable(content):
-	start = content.index("<table class=\"tablehead\"")
+	start = content.index("<table class=")
 	end = content.index("</table>", start)
 	return content[start:end]
 
@@ -119,10 +119,10 @@ def getHeight(table):
 # This scrapes the HTML
 
 # Apply generic webscraper to MLB hitting stats
-if len(sys.argv) > 1:
+if len(sys.argv) > 2:
 	URL = sys.argv[1] 
-	filename = "test.csv"
-
+	filename = sys.argv[2]
+	
 	sock = urllib.urlopen(URL)
 	content = sock.read()
 	sock.close()
