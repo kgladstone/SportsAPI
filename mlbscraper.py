@@ -42,4 +42,4 @@ os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
 f1 = "nl.csv"
 f2 = "al.csv"
 fn = "mlb.csv"
-os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
+#os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)

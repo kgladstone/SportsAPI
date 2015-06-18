@@ -1,0 +1,874 @@
+Keiths-MacBook-Pro:simulator keithag$ java Baseball
+***********************Welcome to the MLB Simulation Game***********************
+Using real probability simulations based on player stats...
+
+Reading players from ../data/nl.csv
+Reading players from ../data/al.csv
+Introducing the
+National League:
+Paul Goldschmidt 0.363
+Dee Gordon 0.351
+Bryce Harper 0.344
+DJ LeMahieu 0.330
+Nori Aoki 0.317
+Yunel Escobar 0.316
+Jhonny Peralta 0.311
+Joe Panik 0.311
+A.J. Pollock 0.310
+
+****************
+Introducing the
+American League:
+Prince Fielder 0.343
+Miguel Cabrera 0.341
+Jason Kipnis 0.333
+Mike Moustakas 0.323
+Nelson Cruz 0.308
+Dustin Pedroia 0.306
+Josh Donaldson 0.304
+Josh Reddick 0.302
+Michael Brantley 0.301
+
+****************
+Inning No. 1 for National League
+1
+Paul Goldschmidt comes up to the plate
+Paul Goldschmidt has hitting stats: 50/15/1/19
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+0 Out
+
+2
+Dee Gordon comes up to the plate
+Dee Gordon has hitting stats: 81/13/2/0
+Dee Gordon is out!
+Runner on first
+1 Out
+
+3
+Bryce Harper comes up to the plate
+Bryce Harper has hitting stats: 37/14/1/22
+Bryce Harper is out!
+Runner on first
+2 Out
+
+4
+DJ LeMahieu comes up to the plate
+DJ LeMahieu has hitting stats: 62/10/2/3
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on second
+2 Out
+
+5
+Nori Aoki comes up to the plate
+Nori Aoki has hitting stats: 68/8/2/2
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on second
+Runner on third
+2 Out
+
+6
+Yunel Escobar comes up to the plate
+Yunel Escobar has hitting stats: 62/7/1/3
+Yunel Escobar is out!
+Runner on first
+Runner on second
+Runner on third
+3 Out
+
+Inning Summary: 0 runs	 3 hits
+****************
+Inning No. 1 for American League
+1
+Prince Fielder comes up to the plate
+Prince Fielder has hitting stats: 63/14/0/11
+Hit: Home-Run
+**    **    ******
+**    **    **   **
+********    *****
+**    **    **   **
+**    **    **   **
+
+1 RBI
+0 Out
+
+2
+Miguel Cabrera comes up to the plate
+Miguel Cabrera has hitting stats: 51/13/1/15
+Hit: Double
+ ******     ******
+**    **    **   **
+    ***     *****
+   ***      **   **
+********    ******
+
+Runner on second
+0 Out
+
+3
+Jason Kipnis comes up to the plate
+Jason Kipnis has hitting stats: 57/19/4/5
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on third
+0 Out
+
+4
+Mike Moustakas comes up to the plate
+Mike Moustakas has hitting stats: 55/12/1/6
+Mike Moustakas is out!
+Runner on first
+Runner on third
+1 Out
+
+5
+Nelson Cruz comes up to the plate
+Nelson Cruz has hitting stats: 50/7/1/18
+Nelson Cruz is out!
+Runner on first
+Runner on third
+2 Out
+
+6
+Dustin Pedroia comes up to the plate
+Dustin Pedroia has hitting stats: 61/11/0/9
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+1 RBI
+Runner on first
+Runner on second
+2 Out
+
+7
+Josh Donaldson comes up to the plate
+Josh Donaldson has hitting stats: 48/16/0/17
+Hit: Double
+ ******     ******
+**    **    **   **
+    ***     *****
+   ***      **   **
+********    ******
+
+1 RBI
+Runner on second
+Runner on third
+2 Out
+
+8
+Josh Reddick comes up to the plate
+Josh Reddick has hitting stats: 46/10/3/10
+Josh Reddick is out!
+Runner on second
+Runner on third
+3 Out
+
+Inning Summary: 0 runs	 5 hits
+****************
+Inning No. 2 for National League
+7
+Jhonny Peralta comes up to the plate
+Jhonny Peralta has hitting stats: 49/16/0/10
+Jhonny Peralta is out!
+1 Out
+
+8
+Joe Panik comes up to the plate
+Joe Panik has hitting stats: 52/15/2/6
+Hit: Double
+ ******     ******
+**    **    **   **
+    ***     *****
+   ***      **   **
+********    ******
+
+Runner on second
+1 Out
+
+9
+A.J. Pollock comes up to the plate
+A.J. Pollock has hitting stats: 54/13/2/8
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on third
+1 Out
+
+1
+Paul Goldschmidt comes up to the plate
+Paul Goldschmidt has hitting stats: 50/15/1/19
+Paul Goldschmidt is out!
+Runner on first
+Runner on third
+2 Out
+
+2
+Dee Gordon comes up to the plate
+Dee Gordon has hitting stats: 81/13/2/0
+Hit: Double
+ ******     ******
+**    **    **   **
+    ***     *****
+   ***      **   **
+********    ******
+
+1 RBI
+Runner on second
+Runner on third
+2 Out
+
+3
+Bryce Harper comes up to the plate
+Bryce Harper has hitting stats: 37/14/1/22
+Bryce Harper is out!
+Runner on second
+Runner on third
+3 Out
+
+Inning Summary: 0 runs	 3 hits
+****************
+Inning No. 2 for American League
+9
+Michael Brantley comes up to the plate
+Michael Brantley has hitting stats: 40/20/0/4
+Hit: Double
+ ******     ******
+**    **    **   **
+    ***     *****
+   ***      **   **
+********    ******
+
+Runner on second
+0 Out
+
+1
+Prince Fielder comes up to the plate
+Prince Fielder has hitting stats: 63/14/0/11
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on third
+0 Out
+
+2
+Miguel Cabrera comes up to the plate
+Miguel Cabrera has hitting stats: 51/13/1/15
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+1 RBI
+Runner on first
+Runner on second
+0 Out
+
+3
+Jason Kipnis comes up to the plate
+Jason Kipnis has hitting stats: 57/19/4/5
+Jason Kipnis is out!
+Runner on first
+Runner on second
+1 Out
+
+4
+Mike Moustakas comes up to the plate
+Mike Moustakas has hitting stats: 55/12/1/6
+Mike Moustakas is out!
+Runner on first
+Runner on second
+2 Out
+
+5
+Nelson Cruz comes up to the plate
+Nelson Cruz has hitting stats: 50/7/1/18
+Nelson Cruz is out!
+Runner on first
+Runner on second
+3 Out
+
+Inning Summary: 0 runs	 3 hits
+****************
+Inning No. 3 for National League
+4
+DJ LeMahieu comes up to the plate
+DJ LeMahieu has hitting stats: 62/10/2/3
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+0 Out
+
+5
+Nori Aoki comes up to the plate
+Nori Aoki has hitting stats: 68/8/2/2
+Nori Aoki is out!
+Runner on first
+1 Out
+
+6
+Yunel Escobar comes up to the plate
+Yunel Escobar has hitting stats: 62/7/1/3
+Yunel Escobar is out!
+Runner on first
+2 Out
+
+7
+Jhonny Peralta comes up to the plate
+Jhonny Peralta has hitting stats: 49/16/0/10
+Jhonny Peralta is out!
+Runner on first
+3 Out
+
+Inning Summary: 0 runs	 1 hits
+****************
+Inning No. 3 for American League
+6
+Dustin Pedroia comes up to the plate
+Dustin Pedroia has hitting stats: 61/11/0/9
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+0 Out
+
+7
+Josh Donaldson comes up to the plate
+Josh Donaldson has hitting stats: 48/16/0/17
+Josh Donaldson is out!
+Runner on first
+1 Out
+
+8
+Josh Reddick comes up to the plate
+Josh Reddick has hitting stats: 46/10/3/10
+Hit: Home-Run
+**    **    ******
+**    **    **   **
+********    *****
+**    **    **   **
+**    **    **   **
+
+2 RBI
+1 Out
+
+9
+Michael Brantley comes up to the plate
+Michael Brantley has hitting stats: 40/20/0/4
+Michael Brantley is out!
+2 Out
+
+1
+Prince Fielder comes up to the plate
+Prince Fielder has hitting stats: 63/14/0/11
+Prince Fielder is out!
+3 Out
+
+Inning Summary: 0 runs	 2 hits
+****************
+Inning No. 4 for National League
+8
+Joe Panik comes up to the plate
+Joe Panik has hitting stats: 52/15/2/6
+Hit: Double
+ ******     ******
+**    **    **   **
+    ***     *****
+   ***      **   **
+********    ******
+
+Runner on second
+0 Out
+
+9
+A.J. Pollock comes up to the plate
+A.J. Pollock has hitting stats: 54/13/2/8
+A.J. Pollock is out!
+Runner on second
+1 Out
+
+1
+Paul Goldschmidt comes up to the plate
+Paul Goldschmidt has hitting stats: 50/15/1/19
+Paul Goldschmidt is out!
+Runner on second
+2 Out
+
+2
+Dee Gordon comes up to the plate
+Dee Gordon has hitting stats: 81/13/2/0
+Dee Gordon is out!
+Runner on second
+3 Out
+
+Inning Summary: 0 runs	 1 hits
+****************
+Inning No. 4 for American League
+2
+Miguel Cabrera comes up to the plate
+Miguel Cabrera has hitting stats: 51/13/1/15
+Miguel Cabrera is out!
+1 Out
+
+3
+Jason Kipnis comes up to the plate
+Jason Kipnis has hitting stats: 57/19/4/5
+Jason Kipnis is out!
+2 Out
+
+4
+Mike Moustakas comes up to the plate
+Mike Moustakas has hitting stats: 55/12/1/6
+Hit: Double
+ ******     ******
+**    **    **   **
+    ***     *****
+   ***      **   **
+********    ******
+
+Runner on second
+2 Out
+
+5
+Nelson Cruz comes up to the plate
+Nelson Cruz has hitting stats: 50/7/1/18
+Nelson Cruz is out!
+Runner on second
+3 Out
+
+Inning Summary: 0 runs	 1 hits
+****************
+Inning No. 5 for National League
+3
+Bryce Harper comes up to the plate
+Bryce Harper has hitting stats: 37/14/1/22
+Bryce Harper is out!
+1 Out
+
+4
+DJ LeMahieu comes up to the plate
+DJ LeMahieu has hitting stats: 62/10/2/3
+DJ LeMahieu is out!
+2 Out
+
+5
+Nori Aoki comes up to the plate
+Nori Aoki has hitting stats: 68/8/2/2
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+2 Out
+
+6
+Yunel Escobar comes up to the plate
+Yunel Escobar has hitting stats: 62/7/1/3
+Yunel Escobar is out!
+Runner on first
+3 Out
+
+Inning Summary: 0 runs	 1 hits
+****************
+Inning No. 5 for American League
+6
+Dustin Pedroia comes up to the plate
+Dustin Pedroia has hitting stats: 61/11/0/9
+Dustin Pedroia is out!
+1 Out
+
+7
+Josh Donaldson comes up to the plate
+Josh Donaldson has hitting stats: 48/16/0/17
+Josh Donaldson is out!
+2 Out
+
+8
+Josh Reddick comes up to the plate
+Josh Reddick has hitting stats: 46/10/3/10
+Josh Reddick is out!
+3 Out
+
+Inning Summary: 0 runs	 0 hits
+****************
+Inning No. 6 for National League
+7
+Jhonny Peralta comes up to the plate
+Jhonny Peralta has hitting stats: 49/16/0/10
+Jhonny Peralta is out!
+1 Out
+
+8
+Joe Panik comes up to the plate
+Joe Panik has hitting stats: 52/15/2/6
+Joe Panik is out!
+2 Out
+
+9
+A.J. Pollock comes up to the plate
+A.J. Pollock has hitting stats: 54/13/2/8
+A.J. Pollock is out!
+3 Out
+
+Inning Summary: 0 runs	 0 hits
+****************
+Inning No. 6 for American League
+9
+Michael Brantley comes up to the plate
+Michael Brantley has hitting stats: 40/20/0/4
+Michael Brantley is out!
+1 Out
+
+1
+Prince Fielder comes up to the plate
+Prince Fielder has hitting stats: 63/14/0/11
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+1 Out
+
+2
+Miguel Cabrera comes up to the plate
+Miguel Cabrera has hitting stats: 51/13/1/15
+Miguel Cabrera is out!
+Runner on first
+2 Out
+
+3
+Jason Kipnis comes up to the plate
+Jason Kipnis has hitting stats: 57/19/4/5
+Jason Kipnis is out!
+Runner on first
+3 Out
+
+Inning Summary: 0 runs	 1 hits
+****************
+Inning No. 7 for National League
+1
+Paul Goldschmidt comes up to the plate
+Paul Goldschmidt has hitting stats: 50/15/1/19
+Paul Goldschmidt is out!
+1 Out
+
+2
+Dee Gordon comes up to the plate
+Dee Gordon has hitting stats: 81/13/2/0
+Dee Gordon is out!
+2 Out
+
+3
+Bryce Harper comes up to the plate
+Bryce Harper has hitting stats: 37/14/1/22
+Bryce Harper is out!
+3 Out
+
+Inning Summary: 0 runs	 0 hits
+****************
+Inning No. 7 for American League
+4
+Mike Moustakas comes up to the plate
+Mike Moustakas has hitting stats: 55/12/1/6
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+0 Out
+
+5
+Nelson Cruz comes up to the plate
+Nelson Cruz has hitting stats: 50/7/1/18
+Nelson Cruz is out!
+Runner on first
+1 Out
+
+6
+Dustin Pedroia comes up to the plate
+Dustin Pedroia has hitting stats: 61/11/0/9
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on second
+1 Out
+
+7
+Josh Donaldson comes up to the plate
+Josh Donaldson has hitting stats: 48/16/0/17
+Josh Donaldson is out!
+Runner on first
+Runner on second
+2 Out
+
+8
+Josh Reddick comes up to the plate
+Josh Reddick has hitting stats: 46/10/3/10
+Josh Reddick is out!
+Runner on first
+Runner on second
+3 Out
+
+Inning Summary: 0 runs	 2 hits
+****************
+Inning No. 8 for National League
+4
+DJ LeMahieu comes up to the plate
+DJ LeMahieu has hitting stats: 62/10/2/3
+DJ LeMahieu is out!
+1 Out
+
+5
+Nori Aoki comes up to the plate
+Nori Aoki has hitting stats: 68/8/2/2
+Nori Aoki is out!
+2 Out
+
+6
+Yunel Escobar comes up to the plate
+Yunel Escobar has hitting stats: 62/7/1/3
+Hit: Double
+ ******     ******
+**    **    **   **
+    ***     *****
+   ***      **   **
+********    ******
+
+Runner on second
+2 Out
+
+7
+Jhonny Peralta comes up to the plate
+Jhonny Peralta has hitting stats: 49/16/0/10
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on third
+2 Out
+
+8
+Joe Panik comes up to the plate
+Joe Panik has hitting stats: 52/15/2/6
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+1 RBI
+Runner on first
+Runner on second
+2 Out
+
+9
+A.J. Pollock comes up to the plate
+A.J. Pollock has hitting stats: 54/13/2/8
+A.J. Pollock is out!
+Runner on first
+Runner on second
+3 Out
+
+Inning Summary: 0 runs	 3 hits
+****************
+Inning No. 8 for American League
+9
+Michael Brantley comes up to the plate
+Michael Brantley has hitting stats: 40/20/0/4
+Michael Brantley is out!
+1 Out
+
+1
+Prince Fielder comes up to the plate
+Prince Fielder has hitting stats: 63/14/0/11
+Prince Fielder is out!
+2 Out
+
+2
+Miguel Cabrera comes up to the plate
+Miguel Cabrera has hitting stats: 51/13/1/15
+Miguel Cabrera is out!
+3 Out
+
+Inning Summary: 0 runs	 0 hits
+****************
+Inning No. 9 for National League
+1
+Paul Goldschmidt comes up to the plate
+Paul Goldschmidt has hitting stats: 50/15/1/19
+Paul Goldschmidt is out!
+1 Out
+
+2
+Dee Gordon comes up to the plate
+Dee Gordon has hitting stats: 81/13/2/0
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+1 Out
+
+3
+Bryce Harper comes up to the plate
+Bryce Harper has hitting stats: 37/14/1/22
+Bryce Harper is out!
+Runner on first
+2 Out
+
+4
+DJ LeMahieu comes up to the plate
+DJ LeMahieu has hitting stats: 62/10/2/3
+DJ LeMahieu is out!
+Runner on first
+3 Out
+
+Inning Summary: 0 runs	 1 hits
+****************
+Inning No. 9 for American League
+3
+Jason Kipnis comes up to the plate
+Jason Kipnis has hitting stats: 57/19/4/5
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+0 Out
+
+4
+Mike Moustakas comes up to the plate
+Mike Moustakas has hitting stats: 55/12/1/6
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on second
+0 Out
+
+5
+Nelson Cruz comes up to the plate
+Nelson Cruz has hitting stats: 50/7/1/18
+Hit: Single
+ ***    ******
+****    **   **
+ ***    *****
+ ***    **   **
+ ***    ******
+
+Runner on first
+Runner on second
+Runner on third
+0 Out
+
+6
+Dustin Pedroia comes up to the plate
+Dustin Pedroia has hitting stats: 61/11/0/9
+Dustin Pedroia is out!
+Runner on first
+Runner on second
+Runner on third
+1 Out
+
+7
+Josh Donaldson comes up to the plate
+Josh Donaldson has hitting stats: 48/16/0/17
+Josh Donaldson is out!
+Runner on first
+Runner on second
+Runner on third
+2 Out
+
+8
+Josh Reddick comes up to the plate
+Josh Reddick has hitting stats: 46/10/3/10
+Josh Reddick is out!
+Runner on first
+Runner on second
+Runner on third
+3 Out
+
+Inning Summary: 0 runs	 3 hits
+****************
+Game Summary:
+National League: 2 runs	 13 hits
+American League: 6 runs	 17 hits
