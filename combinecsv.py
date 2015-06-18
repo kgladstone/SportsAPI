@@ -10,7 +10,7 @@ import sys
 import os.path
 
 def getHeader(s):
-	return s[0:s.index("\n")]
+	return s[0:s.index("\n") + 1]
 
 def rmHeader(s):
 	h = getHeader(s)
