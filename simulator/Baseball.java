@@ -28,7 +28,7 @@ public class Baseball
         BattingOrder NL = new BattingOrder("nl.csv", "National League", 9);
         BattingOrder AL = new BattingOrder("al.csv", "American League", 9);
         
-        
+        StdOut.println("****************");
         StdOut.println("Introducing the");
         StdOut.println(NL);
         StdOut.println("****************");
@@ -41,16 +41,19 @@ public class Baseball
         inningOuts = 0;
         inningRuns = 0;
         inningHits = 0;
-        for (int k = 1; k <= 9; k++) // Can adjust number of innings
+        for (int k = 1; k <= 1; k++) // Can adjust number of innings
         {
             simInning(NL, k);
             simInning(AL, k);
         }
         
-      
-        StdOut.println("Game Summary:");
+        StdOut.println("Ballgame Over!");
+        StdOut.println("****************");
+        StdOut.println("Scoring Summary:");
         StdOut.println(scoreToString(NL));
         StdOut.println(scoreToString(AL));
+        StdOut.println("********************************************************************************");
+
         
     }
     
@@ -84,7 +87,7 @@ public class Baseball
         Batter batter = team.batterAtBat();
         StdOut.println(batter.name() + " comes up to the plate");
         if (batter.hasHittingStats())
-            StdOut.println(batter.name() + " has hitting stats: " + batter.statLine());
+            StdOut.println(batter.name() + " has hitting splits: " + batter.hittingSplits());
         boolean hit = hit(batter);
         
         if (hit == true) {

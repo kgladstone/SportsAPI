@@ -43,6 +43,7 @@ public class BattingOrder {
         int doublesField = 5;
         int triplesField = 6;
         int HRField = 7;
+        boolean yesToAll = true; //If true, add first X batters
             
         String header = in.readLine();
         
@@ -62,7 +63,17 @@ public class BattingOrder {
             
             Batter batter = new Batter(name, AVG);
             batter.setHittingStats(AB, hits, doubles, triples, HR);
-            add(batter);
+
+            if (yesToAll) 
+                add(batter);
+            else
+            {
+                StdOut.println("Add " + name + " to lineup? (y/n)");
+                if (StdIn.readLine().equals("y"))
+                    add(batter);
+                else
+                    i--;
+            }
         }
 
     }
@@ -89,6 +100,9 @@ public class BattingOrder {
             throw new IndexOutOfBoundsException("Too many players in lineup");
     }
     
+    /*
+     * Return batter at lineup
+     */
     public Batter get(int i)
     {
         if (i < index) 

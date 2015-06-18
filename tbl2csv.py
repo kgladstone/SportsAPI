@@ -158,7 +158,7 @@ if len(sys.argv) > 2:
 	myfile.close()
 
 	# Print file contents
-	os.system("cat " + path)
+	#os.system("cat " + path)
 
 # Throw error message
 else:

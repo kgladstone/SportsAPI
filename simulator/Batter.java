@@ -79,7 +79,10 @@ public class Batter {
     
     public String toString()
     {
-        return name + " " + roundAVG();
+        String result = name();
+        for (int j = name.length(); j < 25; j++)
+            result += " ";
+        return result + roundAVG();
     }
     
     /*
@@ -97,9 +100,9 @@ public class Batter {
         return roundAVG;
     }
     
-    public String statLine()
+    public String hittingSplits()
     {
-        return season1B + "/" + season2B + "/" + season3B + "/" + seasonHR;
+        return "1B: " + season1B + " | 2B: " + season2B + " | 3B: " + season3B + " | HR: " + seasonHR;
     }
     
 }
