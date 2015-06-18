@@ -41,3 +41,7 @@ myfile.write(rmHeader(s2))
 
 # Close the file
 myfile.close()
+
+# Delete src files
+os.system("rm " + f1)
+os.system("rm " + f2)
