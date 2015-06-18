@@ -5,15 +5,12 @@
 #  * 
 #  * This file scrapes data from an HTML table on the Web
 #  * and outputs it into a CSV file. 
+#  * A richer logic will allow for more versatility.
 #  * Requires Python to execute.
 #  ***************************************************************/
 import urllib
-import datetime
 import sys
-
-# Apply generic webscraper to MLB hitting stats
-URL = "http://espn.go.com/mlb/stats/batting/_/sort/avg/league/nl/year/2015/seasontype/2"
-fn = "test.csv"
+import os.path
 
 # Scraping functions
 
@@ -120,36 +117,49 @@ def getHeight(table):
 			result += 1
 
 # This scrapes the HTML
-sock = urllib.urlopen(URL)
-content = sock.read()
-sock.close()
 
-# Get items from content of HTML page
-table = getTable(content)
+# Apply generic webscraper to MLB hitting stats
+if len(sys.argv) > 1:
+	URL = sys.argv[1] 
+	filename = "test.csv"
 
-# Open the file with writing permission
-filename = "data/" + fn
-myfile = open(filename, 'w')
+	sock = urllib.urlopen(URL)
+	content = sock.read()
+	sock.close()
 
-# Write items to CSV file
-header = getHeader(content)
-cols = getWidth(header)
-rows = getHeight(table)
+	# Get items from content of HTML page
+	table = getTable(content)
 
-# Write header first
-myfile.write(getElement(header, 2))
-for k in range(3, cols):
-	myfile.write("," + getElement(header, k))
-myfile.write("\n")
+	# Open the file with writing permission
+	path = "data/" + filename
+	myfile = open(path, 'w')
 
-# Write rows
-for i in range(0, rows):
-	row = getRow(table, i)
-	if (row != -1):
-		myfile.write(getElement(row, 2))
-		for k in range(3, cols):
-			myfile.write("," + getElement(row, k))
-		myfile.write("\n")
+	# Write items to CSV file
+	header = getHeader(content)
+	cols = getWidth(header)
+	rows = getHeight(table)
 
-# Close the file
-myfile.close()
+	# Write header first
+	myfile.write(getElement(header, 2))
+	for k in range(3, cols):
+		myfile.write("," + getElement(header, k))
+	myfile.write("\n")
+
+	# Write rows
+	for i in range(0, rows):
+		row = getRow(table, i)
+		if (row != -1):
+			myfile.write(getElement(row, 2))
+			for k in range(3, cols):
+				myfile.write("," + getElement(row, k))
+			myfile.write("\n")
+
+	# Close the file
+	myfile.close()
+
+	# Print file contents
+	os.system("cat " + path)
+
+# Throw error message
+else:
+	print("Error: No URL specified")
