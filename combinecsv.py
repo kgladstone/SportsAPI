@@ -28,15 +28,16 @@ with open(f2) as f:
 
 h = getHeader(s1)
 
-s1clean = rmHeader(s1)
-s2clean = rmHeader(s2)
-
 # Open the file with writing permission
 path = "data/" + fn
 myfile = open(path, 'w')
 
 # Write to file
-myfile.write(h + "\n" + s1clean + s2clean)
+myfile.write(h + "\n")
+
+# TODO: Iterate over list of csv strings
+myfile.write(rmHeader(s1))
+myfile.write(rmHeader(s2))
 
 # Close the file
 myfile.close()
