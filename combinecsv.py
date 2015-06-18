@@ -10,7 +10,7 @@ import sys
 import os.path
 
 def getHeader(s):
-	return s[0:s.index("\n") + 1]
+	return s[0:s.index("\n")]
 
 def rmHeader(s):
 	h = getHeader(s)
@@ -23,7 +23,7 @@ f2 = sys.argv[3]
 with open(f1) as f:
     s1 = f.read()
 
-with open(f1) as f:
+with open(f2) as f:
     s2 = f.read()
 
 h = getHeader(s1)
@@ -36,7 +36,7 @@ path = "data/" + fn
 myfile = open(path, 'w')
 
 # Write to file
-myfile.write(h + s1clean + s2clean)
+myfile.write(h + "\n" + s1clean + s2clean)
 
 # Close the file
 myfile.close()
