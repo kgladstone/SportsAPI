@@ -74,12 +74,17 @@ def espn():
 
 	########################################
 
-# Run ESPN scraper: espn()
+def cbs():
+	team = "NYM"
+	tbl2csvCBSbyTeam(team, "1")
+	team = "PHI"
+	tbl2csvCBSbyTeam(team, "1")
+
+# Run ESPN scraper: 
+#espn()
 
 # Run CBS scraper
-URL = "http://www.cbssports.com/mlb/stats/playersort/mlb/year-2015-season-regularseason-category-batting-qualifying-1"
-team = "NYM"
-tbl2csvCBSbyTeam(team, "1")
-team = "PHI"
-tbl2csvCBSbyTeam(team, "1")
+# URL = "http://www.cbssports.com/mlb/stats/playersort/mlb/year-2015-season-regularseason-category-batting-qualifying-1"
+cbs()
+
 

@@ -138,8 +138,6 @@ def getHeight(table):
 			result += 1
 
 # This scrapes the HTML
-
-# Apply generic webscraper to MLB hitting stats
 if len(sys.argv) > 2:
 	URL = sys.argv[1] 
 	filename = sys.argv[2]
@@ -156,10 +154,8 @@ if len(sys.argv) > 2:
 		table = getTable(content)
 
 	if len(sys.argv) > 4:
-		if (sys.argv[4] == "1"):
-			table = stripRow(table, 0)
-		if (sys.argv[4] == "2"): # Parameter to strip a row of table
-			table = stripRow(table, 0)
+		rowsToStrip = int(sys.argv[4])
+		for i in range(0, rowsToStrip):
 			table = stripRow(table, 0)
 
 	# Open the file with writing permission
@@ -177,7 +173,7 @@ if len(sys.argv) > 2:
 
 	# Write header first
 	myfile.write(getElement(header, 1))
-	for k in range(3, cols):
+	for k in range(2, cols):
 		myfile.write("," + getElement(header, k))
 	myfile.write("\n")
 
@@ -186,7 +182,7 @@ if len(sys.argv) > 2:
 		row = getRow(table, i, header)
 		if (row != -1):
 			myfile.write(getElement(row, 1))
-			for k in range(3, cols):
+			for k in range(2, cols):
 				myfile.write("," + getElement(row, k))
 			myfile.write("\n")
 
