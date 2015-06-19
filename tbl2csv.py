@@ -64,8 +64,12 @@ def getRowWithTags(content, x, header):
 
 # Return element y of table
 def getElement(row, y):
-	exp1 = "<td"
-	exp2 = "</td>"
+	if (row.find("<th") == -1):
+		exp1 = "<td"
+		exp2 = "</td>"
+	else:
+		exp1 = "<th"
+		exp2 = "</th>"
 	end = 0
 	for i in range(0, y):
 		start = row.index(exp1, end)
@@ -100,8 +104,12 @@ def stripRow(table, x):
 # Return number of columns in row
 def getWidth(row):
 	result = 1
-	exp1 = "<td"
-	exp2 = "</td>"
+	if (row.find("<th") == -1):
+		exp1 = "<td"
+		exp2 = "</td>"
+	else:
+		exp1 = "<th"
+		exp2 = "</th>"
 	end = 0
 	while True:
 		if row.find(exp1, end) == -1:
@@ -168,7 +176,7 @@ if len(sys.argv) > 2:
 		rows = getHeight(table)
 
 	# Write header first
-	myfile.write(getElement(header, 2))
+	myfile.write(getElement(header, 1))
 	for k in range(3, cols):
 		myfile.write("," + getElement(header, k))
 	myfile.write("\n")
@@ -177,7 +185,7 @@ if len(sys.argv) > 2:
 	for i in range(0, rows):
 		row = getRow(table, i, header)
 		if (row != -1):
-			myfile.write(getElement(row, 2))
+			myfile.write(getElement(row, 1))
 			for k in range(3, cols):
 				myfile.write("," + getElement(row, k))
 			myfile.write("\n")

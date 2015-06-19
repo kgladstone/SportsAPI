@@ -13,52 +13,73 @@ import os.path
 import sys
 
 # Send URLs to generic scraper
+def tbl2csvESPN(prefix, middle, suffix, league, rank):
+	URL = prefix + league + middle + rank + suffix
+	f = league + rank + ".csv"
+	os.system("python tbl2csv.py " + URL + " " + f + " tablehead 1")
+	return f
 
-# Build URL
-prefix = "http://espn.go.com/mlb/stats/batting/_/league/"
-middle = "/count/"
-suffix = "/qualified/true"
+def tbl2csvCBS(URL, league, rank):
+	f = league + rank + ".csv"
+	nrow = "31"
+	os.system("python tbl2csv.py " + URL + " " + f + " data 1 " + nrow)
+	return f
 
-# NL URL
-league = "nl"
+def tbl2csvCBSbyTeam(team, rank):
+	URL = "http://www.cbssports.com/mlb/stats/playersort/mlb/year-2015-season-regularseason-category-batting-team_abbr-" + team
+	f = team + ".csv"
+	nrow = "31"
+	os.system("python tbl2csv.py " + URL + " " + f + " data 1 " + nrow)
+	return f
 
-# First page
-rank = "1"
-URL = prefix + league + middle + rank + suffix
-f1 = "nl1.csv"
-os.system("python tbl2csv.py " + URL + " " + f1 + " tablehead 1")
+def combinecsv(f1, f2, league):
+	fn = league + ".csv"
+	os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
+	return fn
 
-# Second page
-rank = "41"
-URL = prefix + league + middle + rank + suffix
-f2 = "nl2.csv"
-os.system("python tbl2csv.py " + URL + " " + f2 + " tablehead 1")
+def espn():
+	# Build URL
+	prefix = "http://espn.go.com/mlb/stats/batting/_/league/"
+	middle = "/count/"
+	suffix = "/qualified/true"
 
-fn = "nl.csv"
-os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
+	# NL URL
+	league = "nl"
+	# First page
+	rank = "1"
+	f1 = tbl2csvESPN(prefix, middle, suffix, league, rank)
+	# Second page
+	rank = "41"
+	f2 = tbl2csvESPN(prefix, middle, suffix, league, rank)
 
-########################################
+	combinecsv(f1, f2, league)
 
-# AL URL
-league = "al"
+	########################################
 
-# First page
-rank = "1"
-URL = prefix + league + middle + rank + suffix
-f1 = "al1.csv"
-os.system("python tbl2csv.py " + URL + " " + f1 + " tablehead 1")
+	# NL URL
+	league = "al"
+	# First page
+	rank = "1"
+	f1 = tbl2csvESPN(prefix, middle, suffix, league, rank)
+	# Second page
+	rank = "41"
+	f2 = tbl2csvESPN(prefix, middle, suffix, league, rank)
 
-# Second page
-rank = "41"
-URL = prefix + league + middle + rank + suffix
-f2 = "al2.csv"
-os.system("python tbl2csv.py " + URL + " " + f2 + " tablehead 1")
+	combinecsv(f1, f2, league)
 
-fn = "al.csv"
-os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
+	########################################
 
-# Combine AL and NL into MLB
-f1 = "nl.csv"
-f2 = "al.csv"
-fn = "mlb.csv"
-os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
+	# Combine AL and NL into MLB
+	combinecsv("nl.csv", "al.csv", "mlb")
+
+	########################################
+
+# Run ESPN scraper: espn()
+
+# Run CBS scraper
+URL = "http://www.cbssports.com/mlb/stats/playersort/mlb/year-2015-season-regularseason-category-batting-qualifying-1"
+team = "NYM"
+tbl2csvCBSbyTeam(team, "1")
+team = "PHI"
+tbl2csvCBSbyTeam(team, "1")
+
