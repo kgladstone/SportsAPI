@@ -14,26 +14,45 @@ import sys
 
 # Send URLs to generic scraper
 
-# NL URL
-URL1 = "http://espn.go.com/mlb/stats/batting/_/league/nl/count/1/qualified/true"
-f1 = "nl1.csv"
-os.system("python tbl2csv.py " + URL1 + " " + f1)
+# Build URL
+prefix = "http://espn.go.com/mlb/stats/batting/_/league/"
+middle = "/count/"
+suffix = "/qualified/true"
 
-URL2 = "http://espn.go.com/mlb/stats/batting/_/league/nl/count/41/qualified/true"
+# NL URL
+league = "nl"
+
+# First page
+rank = "1"
+URL = prefix + league + middle + rank + suffix
+f1 = "nl1.csv"
+os.system("python tbl2csv.py " + URL + " " + f1 + " tablehead 1")
+
+# Second page
+rank = "41"
+URL = prefix + league + middle + rank + suffix
 f2 = "nl2.csv"
-os.system("python tbl2csv.py " + URL2 + " " + f2)
+os.system("python tbl2csv.py " + URL + " " + f2 + " tablehead 1")
 
 fn = "nl.csv"
 os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
 
-# AL URL
-URL1 = "http://espn.go.com/mlb/stats/batting/_/league/al/count/1/qualified/true"
-f1 = "al1.csv"
-os.system("python tbl2csv.py " + URL1 + " " + f1)
+########################################
 
-URL2 = "http://espn.go.com/mlb/stats/batting/_/league/al/count/41/qualified/true"
+# AL URL
+league = "al"
+
+# First page
+rank = "1"
+URL = prefix + league + middle + rank + suffix
+f1 = "al1.csv"
+os.system("python tbl2csv.py " + URL + " " + f1 + " tablehead 1")
+
+# Second page
+rank = "41"
+URL = prefix + league + middle + rank + suffix
 f2 = "al2.csv"
-os.system("python tbl2csv.py " + URL2 + " " + f2)
+os.system("python tbl2csv.py " + URL + " " + f2 + " tablehead 1")
 
 fn = "al.csv"
 os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
@@ -42,4 +61,4 @@ os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
 f1 = "nl.csv"
 f2 = "al.csv"
 fn = "mlb.csv"
-#os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
+os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
