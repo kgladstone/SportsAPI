@@ -37,6 +37,8 @@ def combinecsv(f1, f2, league):
 	os.system("python combinecsv.py " + fn + " data/" + f1 + " data/" + f2)
 	return fn
 
+######################### ESPN SCRAPER ######################
+
 def espn():
 	# Build URL
 	prefix = "http://espn.go.com/mlb/stats/batting/_/league/"
@@ -72,7 +74,7 @@ def espn():
 	# Combine AL and NL into MLB
 	combinecsv("nl.csv", "al.csv", "mlb")
 
-	########################################
+######################### CBS SCRAPER #######################
 
 def cbs():
 	team = "NYM"

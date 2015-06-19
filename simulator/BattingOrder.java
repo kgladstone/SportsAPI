@@ -34,15 +34,13 @@ public class BattingOrder {
         String path = "../data/" + file; 
         In in = new In(path);
         StdOut.println("Reading players from " + path);
-        int lastNameField = 0;
-        int firstNameField = 1;
         int nameField = 0;
-        int avgField = 13;
-        int ABField = 2;
-        int hitsField = 4;
-        int doublesField = 5;
-        int triplesField = 6;
-        int HRField = 7;
+        int avgField = 3;
+        int ABField = 4;
+        int hitsField = 6;
+        int doublesField = 7;
+        int triplesField = 8;
+        int HRField = 9;
         boolean yesToAll = true; //If true, add first X batters
             
         String header = in.readLine();
@@ -51,8 +49,6 @@ public class BattingOrder {
         for (int i = 0; i < size; i++) {
             String line = in.readLine();
             String[] tokens = line.split(",");
-            //String lastName = tokens[lastNameField];
-            //String firstName = tokens[firstNameField];
             String name = tokens[nameField];
             Double AVG = Double.parseDouble(tokens[avgField]);
             int AB = Integer.parseInt(tokens[ABField]);

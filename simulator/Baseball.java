@@ -23,17 +23,15 @@ public class Baseball
         StdOut.println("***********************Welcome to the MLB Simulation Game***********************");
         StdOut.println("Using real probability simulations based on player stats...\n");
         
-        //BattingOrder Mets = new BattingOrder("mets.csv", "New York Mets", 9);
-        //BattingOrder Phillies = new BattingOrder("phillies.csv", "Philadelphia Phillies", 9);
-        BattingOrder NL = new BattingOrder("nl.csv", "National League", 9);
-        BattingOrder AL = new BattingOrder("al.csv", "American League", 9);
+        BattingOrder teamA = new BattingOrder("NYM.csv", "New York Mets", 9);
+        BattingOrder teamB = new BattingOrder("PHI.csv", "Philadelphia Phillies", 9);
         
         StdOut.println("****************");
         StdOut.println("Introducing the");
-        StdOut.println(NL);
+        StdOut.println(teamA);
         StdOut.println("****************");
         StdOut.println("Introducing the");
-        StdOut.println(AL);
+        StdOut.println(teamB);
         StdOut.println("****************");
         
         // Simulate Game
@@ -43,15 +41,15 @@ public class Baseball
         inningHits = 0;
         for (int k = 1; k <= 1; k++) // Can adjust number of innings
         {
-            simInning(NL, k);
-            simInning(AL, k);
+            simInning(teamA, k);
+            simInning(teamB, k);
         }
         
         StdOut.println("Ballgame Over!");
         StdOut.println("****************");
         StdOut.println("Scoring Summary:");
-        StdOut.println(scoreToString(NL));
-        StdOut.println(scoreToString(AL));
+        StdOut.println(scoreToString(teamA));
+        StdOut.println(scoreToString(teamB));
         StdOut.println("********************************************************************************");
 
         
