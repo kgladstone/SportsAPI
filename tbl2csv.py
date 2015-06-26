@@ -31,10 +31,7 @@ def getTableWithTag(content, tag):
 # Return row x of table
 def getRow(table, x):
 	row = getRowWithTags(table, x)
-	if row == -1:
-		return -1
-	else:
-		return stripTag(row, "tr")
+	return stripTag(row, "tr")
 
 # Return row x of table and include full <tr> tags
 def getRowWithTags(table, x):
@@ -49,7 +46,7 @@ def getRowWithTags(table, x):
 	result = table[start:end]
 	return result
 
-# Strip the first row of the table
+# Strip the x row of the table
 def stripRow(table, x):
 	row = getRowWithTags(table, x)
 	start = table.index(row)
@@ -191,15 +188,13 @@ if argc > 1:
 		# Write rows
 		for i in range(0, nrow):
 			row = getRow(table, i)
-			#print("Row: " + str(row) + "\n")
-			if row != -1: # if it is a row
-				if isNormalRow(row) != False:
-					for k in range(1, ncol):
-						element = getElement(row, k)
-						myfile.write(element)
-						if k < ncol - 1:
-							myfile.write(",")
-					myfile.write("\n")
+			if isNormalRow(row) != False:
+				for k in range(1, ncol):
+					element = getElement(row, k)
+					myfile.write(element)
+					if k < ncol - 1:
+						myfile.write(",")
+				myfile.write("\n")
 
 		# Close the file
 		myfile.close()
