@@ -16,20 +16,24 @@ import sys
 def tbl2csvESPN(prefix, middle, suffix, league, rank):
 	URL = prefix + league + middle + rank + suffix
 	f = league + rank + ".csv"
-	os.system("python tbl2csv.py " + URL + " " + f + " tablehead 1")
+	tableClass = "tablehead"
+	query = "python tbl2csv.py " + URL + " " + f + " " + tableClass
+	os.system(query)
 	return f
 
 def tbl2csvCBS(URL, league, rank):
 	f = league + rank + ".csv"
-	nrow = "31"
-	os.system("python tbl2csv.py " + URL + " " + f + " data 1 " + nrow)
+	tableClass = "data"
+	query = "python tbl2csv.py " + URL + " " + f + " " + tableClass
+	os.system(query)
 	return f
 
 def tbl2csvCBSbyTeam(team, rank):
 	URL = "http://www.cbssports.com/mlb/stats/playersort/mlb/year-2015-season-regularseason-category-batting-team_abbr-" + team
 	f = team + ".csv"
-	nrow = "31"
-	os.system("python tbl2csv.py " + URL + " " + f + " data 1 " + nrow)
+	tableClass = "data"
+	query = "python tbl2csv.py " + URL + " " + f + " " + tableClass
+	os.system(query)
 	return f
 
 def combinecsv(f1, f2, league):
@@ -81,9 +85,11 @@ def cbs():
 	tbl2csvCBSbyTeam(team, "1")
 	team = "PHI"
 	tbl2csvCBSbyTeam(team, "1")
+	team = "MIA"
+	tbl2csvCBSbyTeam(team, "1")
 
 # Run ESPN scraper: 
-#espn()
+espn()
 
 # Run CBS scraper
 # URL = "http://www.cbssports.com/mlb/stats/playersort/mlb/year-2015-season-regularseason-category-batting-qualifying-1"

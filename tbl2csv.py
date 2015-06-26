@@ -28,43 +28,30 @@ def getTableWithTag(content, tag):
 
 ###################### TABLE OPS ############################
 
-# Return header of table
-def getHeader(table):
-	exp1 = "<tr"
-	exp2 = ">"
-	exp3 = "</tr>"
-	start = table.index(exp1)
-	mid = table.index(exp2, start) + len(exp2)
-	end = table.index(exp3, mid)
-	return table[mid:end]
-
 # Return row x of table
-def getRow(table, x, header):
-	row = getRowWithTags(table, x, header)
+def getRow(table, x):
+	row = getRowWithTags(table, x)
 	if row == -1:
 		return -1
 	else:
 		return stripTag(row, "tr")
 
 # Return row x of table and include full <tr> tags
-def getRowWithTags(table, x, header):
+def getRowWithTags(table, x):
 	exp1 = "<tr"
 	exp2 = ">"
 	exp3 = "</tr>"
 	end = 0
-	for i in range(0, x + 1): # do not scrape header
+	for i in range(0, x + 1): 
 		start = table.index(exp1, end)
-		mid = ta.index(exp2, start) + len(exp2)
+		mid = table.index(exp2, start) + len(exp2)
 		end = table.index(exp3, mid) + len(exp3)
 	result = table[start:end]
-	if header == "" or result.find(header) == -1: # if not equal to header
-		return result
-	else:
-		return -1 # indicates row x is a header
+	return result
 
 # Strip the first row of the table
 def stripRow(table, x):
-	row = getRowWithTags(table, x, "") # blank header
+	row = getRowWithTags(table, x)
 	start = table.index(row)
 	end = start + len(row)
 	return table[0:start] + table[end:len(table)]
@@ -85,30 +72,49 @@ def getHeight(table):
 			end = table.index(exp3, mid)
 			result += 1
 
-# Return number of columns in row
-def getWidth(row):
-	result = 1
-	if (row.find("<th") == -1):
-		exp1 = "<td"
-		exp2 = "</td>"
-	else:
-		exp1 = "<th"
-		exp2 = "</th>"
-	end = 0
-	while True:
-		if row.find(exp1, end) == -1:
-			return result
-		else:
-			start = row.index(exp1, end)
-			mid = row.index(">", start) + 1
-			end = row.index(exp2, mid)
-			result += 1
-	return result
+# Return number of columns in table
+def getWidth(table):
+	row = getRow(table, 0)
+	return int(getColSpan(row))
 
 ###################### ROW OPS ##############################
 
+# Returns True if row doesn't contain a hardcoded "colspan" value
+def isNormalRow(row):
+	hasColSpan = row.find("colspan")
+	return hasColSpan == -1
+
+# Returns the number of columns in a row
+def getColSpan(row):
+	hasColSpan = row.find("colspan")
+	colspan = 0
+	if hasColSpan != -1: # Option 1) Pull value directly
+		start = row.index("colspan") + len("colspan") + 2
+		end = row.index("\"", start)
+		colspan = row[start:end]
+		return colspan
+	else: # Option 2) Need to count elements
+		if (row.find("<th") == -1):
+			exp1 = "<td"
+			exp2 = "</td>"
+		else:
+			exp1 = "<th"
+			exp2 = "</th>"
+		end = 0
+		while True:
+			if row.find(exp1, end) == -1:
+				return colspan
+			else:
+				start = row.index(exp1, end)
+				mid = row.index(">", start) + 1
+				end = row.index(exp2, mid)
+				colspan += 1
+		return colspan
+
 # Return element y of table
 def getElement(row, y):
+	if isNormalRow(row) == -1:
+		return -1
 	if (row.find("<th") == -1):
 		exp1 = "<td"
 		exp2 = "</td>"
@@ -142,59 +148,63 @@ def cleanStr(s):
 
 #################### MAIN FUNCTION  #########################
 
-# This scrapes the HTML
-if len(sys.argv) > 2:
-	URL = sys.argv[1] 
-	filename = sys.argv[2]
-	sock = urllib.urlopen(URL)
-	content = sock.read()
-	sock.close()
+# Process arguments
+argv = sys.argv
+argc = len(argv)
 
-	# Get items from content of HTML page
-	if len(sys.argv) > 3:
-		tag = sys.argv[3]
-		table = getTableWithTag(content, tag)
-	else:
-		table = getTable(content)
+URL = ""
+filename = ""
+tableClass = ""
 
-	if len(sys.argv) > 4:
-		rowsToStrip = int(sys.argv[4])
-		for i in range(0, rowsToStrip):
-			table = stripRow(table, 0)
+if argc > 1:
+	URL = argv[1]
+	if argc > 2:
+		filename = argv[2]
 
-	# Open the file with writing permission
-	path = "data/" + filename
-	myfile = open(path, 'w')
+		# Scrape HTML
+		sock = urllib.urlopen(URL)
+		content = sock.read()
+		sock.close()
+		if argc > 3:
 
-	# Prepare to write items to CSV file
-	header = getHeader(table)
-	cols = getWidth(header)
-	if len(sys.argv) > 5:
-		rows = int(sys.argv[5])
-	else:
-		rows = getHeight(table)
+			# Table class specified
+			tableClass = argv[3]
+			table = getTableWithTag(content, tableClass)	
 
-	# Write header first
-	myfile.write(getElement(header, 1))
-	for k in range(2, cols):
-		myfile.write("," + getElement(header, k))
-	myfile.write("\n")
+		else:
 
-	# Write rows
-	for i in range(0, rows):
-		row = getRow(table, i, header)
-		if (row != -1):
-			myfile.write(getElement(row, 1))
-			for k in range(2, cols):
-				myfile.write("," + getElement(row, k))
-			myfile.write("\n")
+			# Table class unspecified
+			table = getTable(content)
 
-	# Close the file
-	myfile.close()
+		nrow = getHeight(table)
+		ncol = getWidth(table)
 
-	# Print file contents
-	#os.system("cat " + path)
+		print("height")
+		print(nrow)
+		print("width")
+		print(ncol)
 
-# Throw error message
+		# Open the file with writing permission
+		path = "data/" + filename
+		myfile = open(path, 'w')
+
+		# Write rows
+		for i in range(0, nrow):
+			row = getRow(table, i)
+			#print("Row: " + str(row) + "\n")
+			if row != -1: # if it is a row
+				if isNormalRow(row) != False:
+					for k in range(1, ncol):
+						element = getElement(row, k)
+						myfile.write(element)
+						if k < ncol - 1:
+							myfile.write(",")
+					myfile.write("\n")
+
+		# Close the file
+		myfile.close()
+
+	else: # Filename not specified
+		print("Error: Output filename not specified")
 else:
-	print("Error: No URL specified")
+	print("Error: Scraper URL not specified")

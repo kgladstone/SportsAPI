@@ -13,8 +13,26 @@ import os.path
 import sys
 
 # Send URL to generic scraper
-URL1 = "http://www.cbssports.com/collegebasketball/stats/leaders/NCAAB/PTSAVG/regularseason/yearly"
-f1 = "ncaa.csv"
-tag = "data"
-rows = "50"
-os.system("python tbl2csv.py " + URL1 + " " + f1 + " " + tag + " " + "2 " + rows)
+def scrape(URL, f):
+	tableClass = "data"
+	filename = f + ".csv"
+	query = "python tbl2csv.py " + URL + " " + filename + " " + tableClass
+	os.system(query)
+
+def scrapeDivision(div):
+	prefix = "http://www.cbssports.com/collegebasketball/stats/teamsort/"
+	suffix = "/SCORING/regularseason/yearly"
+	URL = prefix + div + suffix
+	scrape(URL, div)
+
+URL = "http://www.cbssports.com/collegebasketball/stats/leaders/NCAAB/PTSAVG/regularseason/yearly"
+f = "ncaa1"
+scrape(URL, f)
+
+
+# Test scrape by division
+scrapeDivision("ACC")
+scrapeDivision("IVY")
+scrapeDivision("PAT")
+
+

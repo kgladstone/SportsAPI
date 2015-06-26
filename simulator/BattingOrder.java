@@ -47,6 +47,8 @@ public class BattingOrder {
         
         // Parse CSV file
         for (int i = 0; i < size; i++) {
+            if (in.isEmpty())
+                break;
             String line = in.readLine();
             String[] tokens = line.split(",");
             String name = tokens[nameField];

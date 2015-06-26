@@ -39,7 +39,7 @@ public class Baseball
         inningOuts = 0;
         inningRuns = 0;
         inningHits = 0;
-        for (int k = 1; k <= 1; k++) // Can adjust number of innings
+        for (int k = 1; k <= 9; k++) // Can adjust number of innings
         {
             simInning(teamA, k);
             simInning(teamB, k);
