@@ -18,21 +18,30 @@ def scrape(URL, f):
 	filename = f + ".csv"
 	query = "python tbl2csv.py " + URL + " " + filename + " " + tableClass
 	os.system(query)
+	return filename
 
 def scrapeDivision(div):
 	prefix = "http://www.cbssports.com/collegebasketball/stats/teamsort/"
 	suffix = "/SCORING/regularseason/yearly"
 	URL = prefix + div + suffix
-	scrape(URL, div)
+	filename = scrape(URL, div)
+	return filename
 
-URL = "http://www.cbssports.com/collegebasketball/stats/leaders/NCAAB/PTSAVG/regularseason/yearly"
-f = "ncaa1"
-scrape(URL, f)
+######################### MAIN FUNCTION ####################
+argv = sys.argv
+argc = len(argv)
 
+filename = ""
 
-# Test scrape by division
-scrapeDivision("ACC")
-scrapeDivision("IVY")
-scrapeDivision("PAT")
+if argc > 1:
+	div = argv[1]
+	filename = scrapeDivision(div)
+else:
+	URL = "http://www.cbssports.com/collegebasketball/stats/leaders/NCAAB/PTSAVG/regularseason/yearly"
+	f = "ncaa1"
+	filename = scrape(URL, f)
+
+# Open finished file
+os.system("open data/" + filename)
 
 

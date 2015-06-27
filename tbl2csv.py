@@ -176,11 +176,6 @@ if argc > 1:
 		nrow = getHeight(table)
 		ncol = getWidth(table)
 
-		print("height")
-		print(nrow)
-		print("width")
-		print(ncol)
-
 		# Open the file with writing permission
 		path = "data/" + filename
 		myfile = open(path, 'w')
