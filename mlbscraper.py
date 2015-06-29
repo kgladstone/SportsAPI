@@ -13,7 +13,7 @@ import os.path
 import sys
 
 # Send URLs to generic scraper
-def tbl2csvESPN(prefix, middle, suffix, league, rank):
+def tbl2csvESPN(league, rank):
 	# Build URL
 	prefix = "http://espn.go.com/mlb/stats/batting/_/league/"
 	middle = "/count/"
@@ -23,6 +23,18 @@ def tbl2csvESPN(prefix, middle, suffix, league, rank):
 	tableClass = "tablehead"
 	query = "python tbl2csv.py " + URL + " " + f + " " + tableClass
 	os.system(query)
+
+	# Post-process: remove RK element
+	import csv
+	path = "data/" + f
+	with open(path,"rb") as source:
+	    rdr= csv.reader( source )
+	    with open("tmp" + f,"wb") as result:
+	        wtr= csv.writer( result )
+	        for r in rdr:
+				r.remove(r[0])
+				wtr.writerow( r )	
+	os.system("mv tmp" + f + " " + path)
 	return f
 
 def tbl2csvCBS(URL, league, rank):
@@ -96,7 +108,7 @@ if argc > 1:
 	site = argv[1]
 	if site.lower() == "espn":
 		filename = espn()
-	if site.lower() == "cbs":
+	elif site.lower() == "cbs":
 		if argv > 2:
 			team = argv[2]
 		else:

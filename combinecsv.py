@@ -12,9 +12,8 @@ import os.path
 def getHeader(s):
 	return s[0:s.index("\n")]
 
-def rmHeader(s):
-	h = getHeader(s)
-	return s[len(h) + 1:len(s)]
+def rmHeaders(s, h):
+	return s.replace(h + '\n', '')
 
 fn = sys.argv[1]
 f1 = sys.argv[2]
@@ -36,8 +35,8 @@ myfile = open(path, 'w')
 myfile.write(h + "\n")
 
 # TODO: Iterate over list of csv strings
-myfile.write(rmHeader(s1))
-myfile.write(rmHeader(s2))
+myfile.write(rmHeaders(s1, h))
+myfile.write(rmHeaders(s2, h))
 
 # Close the file
 myfile.close()

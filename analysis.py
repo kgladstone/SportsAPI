@@ -21,13 +21,6 @@ def isfloat(value):
   except ValueError:
     return False
 
-# Clears repeat headers from list l
-def rmHeaders(l, header):
-	for row in l:
-		if row == list(header):
-			l.remove(row)
-	return l
-
 ############# MAIN FUNCTION ##################
 
 argv = sys.argv

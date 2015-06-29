@@ -74,6 +74,13 @@ def getWidth(table):
 	row = getRow(table, 0)
 	return int(getColSpan(row))
 
+# Return the header of the table
+def getHeader(table):
+	for i in range(0, getHeight(table)):
+		row = getRow(table, i)
+		if isNormalRow(row):
+			return row
+
 ###################### ROW OPS ##############################
 
 # Returns True if row doesn't contain a hardcoded "colspan" value
