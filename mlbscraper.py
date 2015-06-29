@@ -101,7 +101,7 @@ if argc > 1:
 			team = argv[2]
 		else:
 			team = "NYM"
-		filename = cbs(team)
+		filename = cbs(team.upper())
 	else:
 		print("Error: Invalid site")
 else:
