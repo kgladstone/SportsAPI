@@ -4,7 +4,7 @@
 #  * Created in June 2015
 #  * 
 #  * This file scrapes data from an HTML table on the Web
-#  * and outputs it into a CSV file. 
+#  * and parses it into a CSV file. 
 #  * A richer logic will allow for more versatility.
 #  * Requires Python to execute.
 #  ***************************************************************/
