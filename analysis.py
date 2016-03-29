@@ -33,7 +33,6 @@ if argc > 1:
 	data = csv.reader(open(filename), delimiter=',')
 	header = next(data) # Skip header
 	data = list(data) # Convert data to list type
-	data = rmHeaders(data, header) # Remove repeats of header 
 
 	if argc > 2:
 		sortby = int(sys.argv[2])
@@ -68,4 +67,14 @@ if argc > 1:
 	# Print header again
 	for i, val in enumerate(header):
 		print i, val
+
+	while True:
+		print("Data Analysis Module")
+		print("Enter '-1' to exit")
+		fn = input("Which file would you like to use? ")
+		if fn == -1:
+			break
+		col = input("Which column would you like to sort by? ")
+		if col == -1:
+			break
 
