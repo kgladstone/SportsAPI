@@ -18,7 +18,7 @@ Since there isn't a site where MLB player weights are listed conveniently, the R
 
 Simulator
 ----------
-**There is work to be done here:**
+**TODO:**
 Pipes the scraped data into a work-in-progress Baseball Game Simulator, currently in Java.
 
 Future plans
