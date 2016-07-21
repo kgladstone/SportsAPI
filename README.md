@@ -18,11 +18,12 @@ Since there isn't a site where MLB player weights are listed conveniently, the R
 
 Simulator
 ----------
-**TODO:**
 Pipes the scraped data into a work-in-progress Baseball Game Simulator, currently in Java.
 
-Future plans
+TODOs
 ----------
 - Convert scrapers from hard-coding to [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - Make more scrapers
+- Expand the Baseball Game Simulator
 - Data analysis: Select a pitcher-hitter matchup and use probability to predict the outcome. Requires: Pitching stats, probability modelling functions
+- Expand the README 
