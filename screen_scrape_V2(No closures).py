@@ -27,57 +27,26 @@ page = requests.get(url) #Downloads the HTML sourcecode from url
 soup = BeautifulSoup(page.content) 
 
 # Find the roster in HTML sourcecode ('tablehead')
-right_table=soup.find('table', class_='tablehead')
+right_table=soup.find("table", class_="tablehead")
 
-# (Would like to automate the assignment of the empty list arrays via a loop...)
-# for i in range(column_start,column_end):
-# 	"V"+ str(i) = []
-# However, python doesn't like me assigning a "String" as a variable 
+#Creates lists for player data 
+mlb_data = []
+temp_list =[]
 
-# Creates empty lists for each column of roster data 
-V1, V2, V3, V4, V5, V6, V7, V8, V9, V10 = [],[],[],[],[],[],[],[],[],[]
-
-# Extract table (roster) data by row
+# Extract table (roster) data by row and fills list of lists 
 for row in right_table.findAll("tr"):
-    cells = row.findAll('td')
-    if len(cells)==(column_start-column_end):  
-       
-       #Fill lists with Roster data  
-        V1.append(cells[0].find(text=True))
-        V2.append(cells[1].find(text=True)) #Name column
-        V3.append(cells[2].find(text=True))
-        V4.append(cells[3].find(text=True))
-        V5.append(cells[4].find(text=True))
-        V6.append(cells[5].find(text=True))
-        V7.append(cells[6].find(text=True))
-        V8.append(cells[7].find(text=True))
-        V9.append(cells[8].find(text=True)) #Weight Column 
-        V10.append(cells[9].find(text=True))
+    cells = row.findAll("td")
+    if len(cells)==(column_end-column_start):  
+           for entry in range(column_start,column_end):   
+                temp_list.append(cells[entry-1].find(text=True))
 
-        # Prototype Code for handling the above rather messy assignments:  
-        # for i in range(column_start,column_end):
-    	#  a = "V"+ str(i)
-    	#  a.append(cells[i-1].find(text=True))
+    mlb_data.append(temp_list)
+    temp_list = []
 
-#import pandas to convert list to data frame, then c-bind all columns 
+
+#import pandas to convert list of lists to data frame 
 import pandas as pd
-df=pd.DataFrame(V1,columns=['V1'])
-df['V2']=V2
-df['V3']=V3
-df['V4']=V4
-df['V5']=V5
-df['V6']=V6
-df['V7']=V7
-df['V8']=V8
-df['V9']=V9
-df['V10']=V10
-
-# Prototype Code: 
-# for i in range(column_start+1,11): 
-# 	name_of_list = 'V'+ str(i)
-#     df[name_of_list] = name_of_list
-
-#df  
+df=pd.DataFrame(mlb_data)
 
 # Writes data frame to Microsoft Excel Sheet 
-df.to_excel('test_Spy.xlsx', sheet_name='sheet1', index=False)
+df.to_excel('test_Spy_2.xlsx', sheet_name='sheet1', index=False)
